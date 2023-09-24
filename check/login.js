@@ -1,5 +1,6 @@
 
-const client = require('../database_API/dbapi')
+const postgresDBModule = require('../database_API/dbapi')
+
 
 const checkLogin = (req, res, next) => {
     let userName = req.body.username
@@ -10,7 +11,7 @@ const checkLogin = (req, res, next) => {
             "Password": password
         }
     )
-    client.query(`select * from "Users" where username = '${userName}' and password = '${password}'`,
+    postgresDBModule.query(`select * from "Users" where username = '${userName}' and password = '${password}'`,
         (err, data) => {
             if (err) {
                 console.log(err.message)

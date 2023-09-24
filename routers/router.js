@@ -44,7 +44,40 @@ router.post('/login/', checkLogin,
 
 
 //register
-router.post('/register', (req, res, next) => {
-
-})
+router.post('/register/',
+    // middleware check if username has already existed
+    (req, res, next) => {
+        let username = req.body.username
+        try {
+            postgresDBModule.query(`select * from "Users" where username = '${username}'`, (err, qRes) => {
+                if (qRes.rowCount !== 0) {
+                    res.status(400).json({
+                        'message': 'Username has already existed'
+                    })
+                }
+            })
+        }
+        catch (err) {
+            res.status(500).json({
+                'error': err,
+                'message': 'get failed'
+            })
+        }
+    },
+    // create new account
+    (req, res, next) => {   
+        try {
+            let password = req.body.password
+            postgresDBModule.query(`insert into "Users" values ('${username}', '${password}')`)
+            res.status(200).json({
+                'message': 'created'
+            })
+        }
+        catch (err) {
+            res.status(500).json({
+                'err': err,
+                'message': 'get failed'
+            })
+        }
+    })
 module.exports = router

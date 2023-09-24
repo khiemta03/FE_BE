@@ -19,7 +19,7 @@ app.use(bodyParser.json())
 
 app.get('/', router)
 
-app.post('/login', router)
+app.post('/', router)
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`)
