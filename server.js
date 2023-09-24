@@ -3,7 +3,9 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
-const router = require('./routers/router')
+const guestRouter = require('./routers/Guest')
+const adminRouter = require('./routers/Admin')
+const checkAdmin = require('./check/admin')
 
 
 // server runs at port 8000
@@ -16,10 +18,11 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
+// for guests
+app.use('/', guestRouter)
+//for admins
+app.use('/Admin', checkAdmin, adminRouter)
 
-app.get('/', router)
-
-app.post('/', router)
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`)
