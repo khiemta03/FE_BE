@@ -6,7 +6,7 @@ const app = express()
 const router = require('./routers/router')
 
 
-// sever runs at port 8000
+// server runs at port 8000
 const port = 8000
 
 
