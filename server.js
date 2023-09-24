@@ -21,7 +21,7 @@ app.use(bodyParser.json())
 // for guests
 app.use('/', guestRouter)
 //for admins
-app.use('/Admin', checkAdmin, adminRouter)
+app.use('/admin/', checkAdmin, adminRouter)
 
 
 app.listen(port, () => {
