@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello Message</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      padding: 50px;
+    }
+
+    .jumbotron {
+      background-color: #17a2b8;
+      color: #fff;
+      text-align: center;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .decorative-card {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="jumbotron">
+      <h1 class="display-4">Hello, <span id="girlfriendName">Your Girlfriend's Name</span>!</h1>
+    </div>
+    <p class="lead justify-content-center" style="text-align: center; font-size: 30px;font: bolder;">I just wanted to let you know that you're amazing, and I appreciate you every day.</p>
+
+  <script>
+    // You can replace "Your Girlfriend's Name" with your girlfriend's name
+    var girlfriendName = "Thanh Thanh";
+
+    // Update the content of the span element with your girlfriend's name
+    document.getElementById("girlfriendName").innerHTML = girlfriendName;
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
